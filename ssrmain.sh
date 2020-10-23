@@ -295,6 +295,8 @@ uninstall_shadowsocksr(){
         chkconfig --del shadowsocks
     elif check_sys packageManager apt; then
         update-rc.d -f shadowsocks remove
+    else
+    update-rc.d -f shadowsocks remove
     fi
     rm -f /etc/shadowsocks.json
     rm -f /etc/init.d/shadowsocks
