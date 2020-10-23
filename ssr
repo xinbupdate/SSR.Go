@@ -30,7 +30,7 @@ Uninstall_SSR.Go() {
     if [ "${response}" == "y" ] || [ "${response}" == "Y" ]; then
         echo "停止 ssrr 服务....."
         ${SSR_stop}
-        wget -qO- https://raw.githubusercontent.com/xinbupdate/SSR.Go/master/ssrmain.sh && bash ssrmain.sh uninstall
+        wget -q https://raw.githubusercontent.com/xinbupdate/SSR.Go/master/ssrmain.sh && bash ssrmain.sh uninstall
         cd /usr/local/
         rm -rf SSR.Go
     else
