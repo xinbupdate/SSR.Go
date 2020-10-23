@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
-import os, random, string, socket, urllib2, base64, qrcode, subprocess, ssl
+import os, random, string, socket, urllib2, base64, subprocess, ssl
 
 # 格式化读取数组呈现的内容
 def byteify(input, encoding='utf-8'):
@@ -115,10 +115,3 @@ def GetSsrUrl(IP, Port, Protocol, Method, Obfs, base64Pwd, SecondPart):
     SsrUrl = "ssr://" + base64SsrUrl
     return SsrUrl
 
-# 生成客户端二维码
-def genQR_Code(ssr_url, path):
-    qr = qrcode.QRCode(version=2, error_correction=qrcode.constants.ERROR_CORRECT_L, box_size=10, border=1)
-    qr.add_data(ssr_url)
-    qr.make(fit=True)
-    img = qr.make_image()
-    img.save(path)
