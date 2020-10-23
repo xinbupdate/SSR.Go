@@ -50,7 +50,7 @@ System_CentOS=`rpm -q centos-release|cut -d- -f1`
 CentOS_Version=`cat /etc/redhat-release|sed -r 's/.* ([0-9]+)\..*/\1/'`
 
 # CentOS 6 专用 python
-py_for_centos="https://raw.githubusercontent.com/leitbogioro/SSR.Go/master/python_for_centos6.sh"
+py_for_centos="https://raw.githubusercontent.com/xinbupdate/SSR.Go/master/python_for_centos6.sh"
 py_intall="python_for_centos6.sh"
 install_python_for_CentOS6(){
     yum install wget -y
@@ -77,12 +77,6 @@ install_python_for_CentOS7(){
     rm -rf /root/${pip_file}
 }
 
-# Python QRCode 依赖
-py_qrcode(){
-    pip install pillow
-    pip install qrcode
-}
-
 #安装依赖
 if [[ ${OS} == 'CentOS' ]] && [[ ${CentOS_Version} -eq "7" ]]; then
     yum update -y
@@ -107,7 +101,7 @@ fi
 #克隆ssr.go项目
 cd /usr/local/
 rm -R SSR.Go
-git clone https://github.com/leitbogioro/SSR.Go
+git clone https://github.com/xinbupdate/SSR.Go
 
 #安装shadowsocksRR主程序
 bash <(curl -L -s https://git.io/fNpEa)
